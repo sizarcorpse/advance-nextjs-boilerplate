@@ -4,7 +4,7 @@ const localePrefix: LocalePrefix = "as-needed";
 
 export const AppConfig = {
   name: "Advanced Next.js Boilerplate",
-  locales: ["en", "fr"],
+  locales: ["en", "fr", "es"],
   defaultLocale: "en",
   localePrefix,
 };

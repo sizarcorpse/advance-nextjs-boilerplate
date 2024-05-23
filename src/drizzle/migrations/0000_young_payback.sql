@@ -28,18 +28,19 @@ CREATE TABLE IF NOT EXISTS "shout" (
 	"commentsCount" integer DEFAULT 0 NOT NULL
 );
 --> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "comment_createdAt_index" ON "comment" ("createdAt");--> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "like_createdAt_index" ON "like" ("createdAt");--> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "shout_userId_index" ON "shout" ("userId");--> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "shout_createdAt_index" ON "shout" ("createdAt");--> statement-breakpoint
 DO $$ BEGIN
- ALTER TABLE "comment" ADD CONSTRAINT "comment_shoutId_shout_id_fk" FOREIGN KEY ("shoutId") REFERENCES "shout"("id") ON DELETE no action ON UPDATE no action;
+ ALTER TABLE "comment" ADD CONSTRAINT "comment_shoutId_shout_id_fk" FOREIGN KEY ("shoutId") REFERENCES "public"."shout"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- ALTER TABLE "like" ADD CONSTRAINT "like_shoutId_shout_id_fk" FOREIGN KEY ("shoutId") REFERENCES "shout"("id") ON DELETE no action ON UPDATE no action;
+ ALTER TABLE "like" ADD CONSTRAINT "like_shoutId_shout_id_fk" FOREIGN KEY ("shoutId") REFERENCES "public"."shout"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
+--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "comment_createdAt_index" ON "comment" ("createdAt");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "like_createdAt_index" ON "like" ("createdAt");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "shout_userId_index" ON "shout" ("userId");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "shout_createdAt_index" ON "shout" ("createdAt");

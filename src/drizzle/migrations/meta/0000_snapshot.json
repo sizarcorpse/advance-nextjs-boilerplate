@@ -1,10 +1,10 @@
 {
-  "id": "ff923b9f-6c4d-40c5-884c-ba0ef402a3f5",
+  "id": "4a167171-83b4-4dc2-b289-79cbfbc5f4c1",
   "prevId": "00000000-0000-0000-0000-000000000000",
-  "version": "5",
-  "dialect": "pg",
+  "version": "6",
+  "dialect": "postgresql",
   "tables": {
-    "comment": {
+    "public.comment": {
       "name": "comment",
       "schema": "",
       "columns": {
@@ -68,7 +68,7 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "like": {
+    "public.like": {
       "name": "like",
       "schema": "",
       "columns": {
@@ -135,7 +135,7 @@
         }
       }
     },
-    "shout": {
+    "public.shout": {
       "name": "shout",
       "schema": "",
       "columns": {

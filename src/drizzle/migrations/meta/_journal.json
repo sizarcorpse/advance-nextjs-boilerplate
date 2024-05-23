@@ -1,12 +1,12 @@
 {
-  "version": "5",
-  "dialect": "pg",
+  "version": "6",
+  "dialect": "postgresql",
   "entries": [
     {
       "idx": 0,
-      "version": "5",
-      "when": 1715191198647,
-      "tag": "0000_real_swordsman",
+      "version": "6",
+      "when": 1715465219878,
+      "tag": "0000_young_payback",
       "breakpoints": true
     }
   ]

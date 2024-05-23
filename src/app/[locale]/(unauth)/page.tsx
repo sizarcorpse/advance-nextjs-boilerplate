@@ -1,9 +1,8 @@
-import { useTranslations } from "next-intl";
-
 import LocaleSwitcher from "@/components/LocaleSwitcher";
+import { getTranslations } from "next-intl/server";
 
-export default function XPage() {
-  const t = useTranslations("welcome");
+export default async function XPage() {
+  const t = await getTranslations("welcome");
 
   return (
     <>
