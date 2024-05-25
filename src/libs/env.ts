@@ -32,7 +32,7 @@ export const env = createEnv({
       process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     RESEND_EMAIL_FROM: process.env.RESEND_EMAIL_FROM,
-    NEXT_PUBLIC_SENTRY_DSN: process.env.SENTRY_DSN,
+    NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
     SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
     SENTRY_ORG: process.env.SENTRY_ORG,
     SENTRY_PROJECT: process.env.SENTRY_PROJECT,
