@@ -10,7 +10,9 @@ export default async function XPage() {
       <p>{t("content")}</p>
       <LocaleSwitcher />
 
-      <SentryTestButton />
+      <SentryTestButton test="Error Form First Button 1" />
+      <SentryTestButton test="Error Form First Button 2" />
+      <SentryTestButton test="Error Form First Button 3" />
     </>
   );
 }
