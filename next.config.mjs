@@ -33,7 +33,7 @@ export default withSentryConfig(
     project: process.env.SENTRY_PROJECT,
 
     // Only enable Sentry in production mode
-    enabled: process.env.NODE_ENV !== "development",
+    // enabled: process.env.NODE_ENV !== "development",
 
     // Only print logs for uploading source maps in CI
     silent: !process.env.CI,
