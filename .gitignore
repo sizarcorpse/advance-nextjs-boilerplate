@@ -38,3 +38,6 @@ next-env.d.ts
 
 *storybook.log
 .swc
+
+# Sentry Config File
+.env.sentry-build-plugin

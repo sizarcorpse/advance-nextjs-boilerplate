@@ -7,6 +7,10 @@ export const env = createEnv({
     DATABASE_URL: z.string().min(1),
     RESEND_API_KEY: z.string().min(1),
     RESEND_EMAIL_FROM: z.string().min(1),
+    SENTRY_DSN: z.string().min(1),
+    SENTRY_AUTH_TOKEN: z.string().min(1),
+    SENTRY_ORG: z.string().min(1),
+    SENTRY_PROJECT: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().optional(),
@@ -28,5 +32,9 @@ export const env = createEnv({
       process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     RESEND_EMAIL_FROM: process.env.RESEND_EMAIL_FROM,
+    SENTRY_DSN: process.env.SENTRY_DSN,
+    SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
+    SENTRY_ORG: process.env.SENTRY_ORG,
+    SENTRY_PROJECT: process.env.SENTRY_PROJECT,
   },
 });
