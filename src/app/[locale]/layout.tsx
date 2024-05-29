@@ -1,10 +1,10 @@
 import "@/styles/tailwind.css";
 
+import { ThemeProvider } from "@/providers";
 import { AppConfig } from "@/utils/config";
 import type { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { notFound } from "next/navigation";
-
 export const metadata: Metadata = {
   icons: [
     {
@@ -41,15 +41,16 @@ export default function RootLayout(props: {
   const messages = useMessages();
 
   return (
-    <html lang={props.params.locale}>
+    <html lang={props.params.locale} suppressHydrationWarning>
       <body>
-        <NextIntlClientProvider
-          locale={props.params.locale}
-          messages={messages}
-        >
-          xxxx
-          {props.children}
-        </NextIntlClientProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <NextIntlClientProvider
+            locale={props.params.locale}
+            messages={messages}
+          >
+            {props.children}
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

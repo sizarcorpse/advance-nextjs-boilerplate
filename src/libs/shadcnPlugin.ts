@@ -56,13 +56,26 @@ export const shadcnPlugin = plugin(
       body: {
         "@apply bg-background text-foreground": {},
       },
+      "::-webkit-scrollbar": {
+        width: "4px",
+      },
+      "::-webkit-scrollbar-track": {
+        background: "transparent",
+      },
+      "::-webkit-scrollbar-thumb": {
+        background: "#0a0a0a",
+        borderRadius: "16px",
+      },
+      "::-webkit-scrollbar-thumb:hover": {
+        background: "#171717",
+      },
     });
   },
   {
     theme: {
       container: {
         center: true,
-        padding: "2rem",
+        padding: "1.5rem",
         screens: {
           "2xl": "1400px",
         },

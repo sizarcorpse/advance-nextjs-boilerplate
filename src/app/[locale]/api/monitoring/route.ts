@@ -58,3 +58,7 @@ export async function POST(req: NextRequest) {
 
   return Response.json({ message: "Error sent." }, { status: 200 });
 }
+
+export async function GET() {
+  return Response.json({ message: "Hello, World!" });
+}

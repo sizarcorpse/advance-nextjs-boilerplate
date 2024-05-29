@@ -18,10 +18,10 @@ import * as React from "react";
 import { forwardRef } from "react";
 
 const Navigation = () => {
-  const t = useTranslations("public-navigation");
+  const t = useTranslations("public_navigation");
 
   return (
-    <NavigationMenu>
+    <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>{t(`projects.label`)}</NavigationMenuTrigger>

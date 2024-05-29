@@ -2,5 +2,141 @@
   "welcome": {
     "title": "Bienvenue à l'Année scolaire 2019-2020!",
     "content": "Nous sommes heureux de vous accueillir à l'année scolaire 2019-2020! Nous avons beaucoup de choses passionnantes prévues pour cette année, et nous avons hâte de commencer. Nous espérons que vous avez une première journée d'école, et nous avons hâte de vous voir bientôt en classe!"
+  },
+  "public_navigation": {
+    "projects": {
+      "label": "Projets",
+      "counts": "3",
+      "data": {
+        "0": {
+          "title": "Projet Behemoth",
+          "description": "Le Projet Behemoth vous aide à devenir un entrepreneur à succès, où que vous soyez dans votre parcours",
+          "href": "https://projectbehemoth.vercel.app/",
+          "image": "/images/project-1.jpg"
+        },
+        "1": {
+          "title": "Neuromancien",
+          "description": "Embarquez pour un voyage épique à travers des royaumes sans limites avec nos aventures VR fascinantes !",
+          "href": "https://neuromancer.vercel.app/",
+          "image": "/images/project-2.jpg"
+        },
+        "2": {
+          "title": "Hadéen",
+          "description": "Hadean est une plateforme qui vous permet de créer et de partager vos propres tâches virtuelles avec d'autres.",
+          "href": "https://hadean.vercel.app/",
+          "image": "/images/project-3.jpg"
+        }
+      }
+    },
+    "learning": {
+      "label": "Apprentissage",
+      "counts": "5",
+      "data": {
+        "0": {
+          "icon": "/svg/packages/drizzle.svg",
+          "href": "https://sizarcorpse.github.io/learn-drizzle/",
+          "repo": "https://github.com/sizarcorpse/learn-drizzle",
+          "title": "Drizzle",
+          "description": "ORM TypeScript prêt pour la production et facile à utiliser."
+        },
+        "1": {
+          "icon": "/svg/packages/postgresql.svg",
+          "href": "https://sizarcorpse.github.io/learn-postgresql/",
+          "repo": "https://github.com/sizarcorpse/learn-postgresql",
+          "title": "PostgreSQL",
+          "description": "PostgreSQL est un système de base de données objet-relationnel open source puissant."
+        },
+        "2": {
+          "icon": "/svg/packages/typescript.svg",
+          "href": "https://sizarcorpse.github.io/learn-typescript/",
+          "repo": "https://github.com/sizarcorpse/learn-typescript",
+          "title": "TypeScript",
+          "description": "TypeScript est un langage pour le développement JavaScript à l'échelle des applications."
+        },
+        "3": {
+          "icon": "/svg/packages/git.svg",
+          "href": "https://sizarcorpse.github.io/learn-git/",
+          "repo": "https://github.com/sizarcorpse/learn-git",
+          "title": "Git",
+          "description": "Git est un système de contrôle de version distribué gratuit et open source."
+        },
+        "4": {
+          "icon": "/svg/packages/testinglibrary.svg",
+          "href": "#",
+          "repo": "#",
+          "title": "React Testing",
+          "description": "Des utilitaires de test simples et complets qui encouragent les bonnes pratiques de test."
+        }
+      }
+    },
+    "official-website": {
+      "label": "Site Officiel",
+      "href": "https://sizar.io/"
+    },
+    "github": {
+      "label": "GitHub",
+      "href": "https://github.com/sizarcorpse"
+    }
+  },
+  "contact_form": {
+    "texts": {
+      "title": "Quelles sont tes pensées?",
+      "description": "Dites-nous comment nous pouvons vous aider. Nous vous répondrons dans les plus brefs délais."
+    },
+    "fields": {
+      "name": {
+        "label": "Nom",
+        "placeholder": "Nom",
+        "error": "Veuillez entrer votre nom"
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "E-mail",
+        "error": "Veuillez saisir une adresse e-mail valide"
+      },
+      "company": {
+        "label": "Entreprise",
+        "placeholder": "Entreprise",
+        "error": "Veuillez saisir le nom de votre entreprise"
+      },
+      "website": {
+        "label": "Site Web",
+        "placeholder": "Site Web",
+        "error": "Veuillez entrer votre site Web"
+      },
+      "service": {
+        "label": "Services",
+        "placeholder": "Quelle prestation recherchez-vous ?",
+        "error": "Veuillez saisir vos services",
+        "options": {
+          "0": "Full Stack Development",
+          "1": "Frontend Development",
+          "2": "Backend Development"
+        }
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "A quoi es-ce que tu penses? Demande-moi n'importe quoi..",
+        "error": "Veuillez saisir votre message"
+      },
+      "submit": {
+        "label": "Envoyer"
+      }
+    }
+  },
+  "landing_page": {
+    "title": "Necroverse! <br></br> Créer l'éternité numérique",
+    "subtitle": "Dans le royaume mystique de Necroverse, où le code tisse le tissu de l'éternité, les développeurs exploitent la puissance des technologies de pointe."
+  },
+  "get_started_button": {
+    "label": "Commencer"
+  },
+  "meta_landing_page": {
+    "meta_title": "Necroverse! Créer l'éternité numérique",
+    "meta_description": "Dans le royaume mystique de Necroverse, où le code tisse le tissu de l'éternité, les développeurs exploitent la puissance des technologies de pointe.",
+    "meta_keywords": "Next.js, React, TypeScript, Tailwind CSS, Vercel, Drizzle, PostgreSQL, TypeScript, Git, React Testing Library",
+    "meta_author": "Sizar Corpse",
+    "meta_company": "sizar.io",
+    "meta_robots": "index, follow"
   }
 }

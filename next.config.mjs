@@ -29,8 +29,6 @@ export default withSentryConfig(
     org: process.env.SENTRY_ORG,
     project: process.env.SENTRY_PROJECT,
 
-    enabled: process.env.NODE_ENV !== "development",
-
     silent: !process.env.CI,
 
     widenClientFileUpload: true,

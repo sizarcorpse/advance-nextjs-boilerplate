@@ -28,6 +28,7 @@ const config: Config = {
       statements: 0,
     },
   },
+  maxWorkers: "50%",
   testEnvironment: "jest-environment-jsdom",
   coverageProvider: "v8",
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/tests/"],

@@ -63,6 +63,8 @@ type ContactForm = z.infer<typeof contactFormSchema>;
 
 const ContactForm = () => {
   const fields = useTranslations("contact_form.fields");
+  const texts = useTranslations("contact_form.texts");
+
   //   const router = useRouter();
 
   const form = useForm<ContactForm>({
@@ -110,7 +112,15 @@ const ContactForm = () => {
     "min-h-12 text-sm border-none shadow-[inset_0_0_16px_-5px_rgba(75,75,75,0.09)] dark:shadow-[inset_0_0_16px_-5px_rgba(254,254,254,0.07)] cursor-pointer";
 
   return (
-    <div className="group relative max-w-screen-md p-8 border-border border-[0.5px] rounded-md flex items-center justify-center shadow-[inset_0_0_32px_-5px_rgba(75,75,75,0.075)] dark:shadow-[inset_0_0_32px_-5px_rgba(254,254,254,0.07)]">
+    <div className="group relative max-w-lg p-8 border-border border-[0.5px] rounded-md flex flex-col items-start justify-start gap-10 mx-auto shadow-[inset_0_0_32px_-5px_rgba(75,75,75,0.075)] dark:shadow-[inset_0_0_32px_-5px_rgba(254,254,254,0.07)]">
+      <div className="space-y-2">
+        <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 dark:from-neutral-50 to-neutral-800 dark:to-neutral-400 bg-opacity-50 ">
+          {texts("title")}
+        </h2>
+        <p className="font-normal text-lg text-neutral-500 dark:text-neutral-300 text-left max-w-screen-md">
+          {texts("description")}
+        </p>
+      </div>
       <Form {...form}>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full">
           <FormField
