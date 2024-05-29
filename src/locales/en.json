@@ -129,6 +129,28 @@
     "title": "Necroverse! <br></br> Crafting Digital Eternity",
     "subtitle": "In the mystical realm of Necroverse, where code weaves the fabric of eternity, developers harness the power of cutting-edge technologies"
   },
+  "public_footer": {
+    "navigation": {
+      "count": 3,
+      "data": {
+        "0": {
+          "label": "Terms of Service",
+          "href": "/terms-of-service"
+        },
+        "1": {
+          "label": "Privacy Policy",
+          "href": "/privacy-policy"
+        },
+        "2": {
+          "label": "License",
+          "href": "/license"
+        }
+      }
+    },
+    "copyright": {
+      "text": "© 2021 Necroverse. All rights reserved."
+    }
+  },
   "get_started_button": {
     "label": "Get Started"
   },

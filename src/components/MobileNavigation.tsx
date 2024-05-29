@@ -1,3 +1,4 @@
+import { FooterNavigation } from "@/components/Footer";
 import GetStartedButton from "@/components/GetStartedButton";
 import Svg from "@/components/Svg";
 import { Button } from "@/components/ui/button";
@@ -88,8 +89,9 @@ const MobileNavigation = async () => {
           </a>
         </div>
 
-        <div className="col-span-2">
+        <div className="col-span-2 space-y-4">
           <GetStartedButton />
+          <FooterNavigation className="flex md:hidden" />
         </div>
       </SheetContent>
     </Sheet>

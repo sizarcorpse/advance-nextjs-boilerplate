@@ -1,8 +1,7 @@
 import Header from "@/components/Header";
-import LocaleSwitcher from "@/components/LocaleSwitcher";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
-import { getTranslations } from "next-intl/server";
 
+import Footer from "@/components/Footer";
+import { getTranslations } from "next-intl/server";
 // TODO: Complete metadata
 
 export async function generateMetadata() {
@@ -23,9 +22,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <main className="h-screen max-h-screen w-full flex flex-col bg-background text-foreground">
       <Header />
       <div className="w-full flex-grow overflow-y-auto">{children}</div>
-      <footer className="w-full h-12 flex">
-        <LocaleSwitcher />
-        <ThemeSwitcher />
+      <footer className="w-full h-12 flex ">
+        <Footer />
       </footer>
     </main>
   );

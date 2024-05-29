@@ -1,13 +1,14 @@
+import { pathnames } from "@/libs/i18nNavigation";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import createMiddleware from "next-intl/middleware";
 import type { NextFetchEvent, NextRequest } from "next/server";
-
 import { AppConfig } from "./utils/config";
 
 const intlMiddleware = createMiddleware({
   locales: AppConfig.locales,
   localePrefix: AppConfig.localePrefix,
   defaultLocale: AppConfig.defaultLocale,
+  pathnames,
 });
 
 const isProtectedRoute = createRouteMatcher(["/dashboard(.*)", "/forum(.*)"]);
@@ -29,7 +30,6 @@ export default function middleware(
         const signInUrl = new URL(`${locale}/sign-in`, req.url);
 
         auth().protect({
-          // `unauthenticatedUrl` is needed to avoid error: "Unable to find `next-intl` locale because the middleware didn't run on this request"
           unauthenticatedUrl: signInUrl.toString(),
         });
       }

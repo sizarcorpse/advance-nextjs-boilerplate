@@ -128,6 +128,28 @@
     "title": "Necroverse! <br></br> Créer l'éternité numérique",
     "subtitle": "Dans le royaume mystique de Necroverse, où le code tisse le tissu de l'éternité, les développeurs exploitent la puissance des technologies de pointe."
   },
+  "public_footer": {
+    "navigation": {
+      "count": 3,
+      "data": {
+        "0": {
+          "label": "Conditions d'utilisation",
+          "href": "/conditions-d-utilisation"
+        },
+        "1": {
+          "label": "Politique de confidentialité",
+          "href": "/politique-de-confidentialite"
+        },
+        "2": {
+          "label": "Licences",
+          "href": "/licence"
+        }
+      }
+    },
+    "copyright": {
+      "text": "© 2021 Necroverse. All rights reserved."
+    }
+  },
   "get_started_button": {
     "label": "Commencer"
   },
