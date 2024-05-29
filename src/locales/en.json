@@ -139,5 +139,21 @@
     "meta_author": "Sizar Corpse",
     "meta_company": "sizar.io",
     "meta_robots": "index, follow"
+  },
+  "meta_sing_in_page": {
+    "meta_title": "Sign In",
+    "meta_description": "Seamlessly sign in to your account with our secure authentication system.",
+    "meta_keywords": "Next.js, React, TypeScript, Tailwind CSS, Vercel",
+    "meta_author": "Sizar Corpse",
+    "meta_company": "sizar.io",
+    "meta_robots": "noindex, nofollow"
+  },
+  "meta_sign_up_page": {
+    "meta_title": "Sign Up",
+    "meta_description": "Seamlessly sign up for a new account with our secure authentication system.",
+    "meta_keywords": "Next.js, React, TypeScript, Tailwind CSS, Vercel",
+    "meta_author": "Sizar Corpse",
+    "meta_company": "sizar.io",
+    "meta_robots": "noindex, nofollow"
   }
 }

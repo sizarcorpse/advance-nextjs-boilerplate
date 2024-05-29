@@ -1,5 +1,17 @@
 import { enUS, esES, frFR } from "@clerk/localizations";
 import { ClerkProvider } from "@clerk/nextjs";
+import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata() {
+  const t = await getTranslations("meta_sing_in_page");
+
+  return {
+    author: t("meta_author"),
+    keywords: t("meta_keywords"),
+    company: t("meta_company"),
+    robots: t("meta_robots"),
+  };
+}
 
 export default function AuthLayout(props: {
   children: React.ReactNode;
