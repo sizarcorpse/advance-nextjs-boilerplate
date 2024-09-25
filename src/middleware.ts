@@ -13,7 +13,7 @@ const intlMiddleware = createMiddleware({
 
 const isProtectedRoute = createRouteMatcher([
   "/dashboard(.*)",
-  "/shout(.*)",
+  "/shouts(.*)",
   "/user(.*)",
 ]);
 
