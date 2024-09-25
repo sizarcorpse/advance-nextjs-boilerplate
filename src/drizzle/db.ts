@@ -1,12 +1,32 @@
-import * as schema from "@/drizzle/schema";
-import { drizzle } from "drizzle-orm/postgres-js";
+import * as comment_s from "@/drizzle/schema/comment";
+import * as like_s from "@/drizzle/schema/like";
+import * as shout_s from "@/drizzle/schema/shout";
+import { env } from "@/libs/env";
+import { PostgresJsDatabase, drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 
-import { env } from "@/libs/env";
+declare global {
+  var database: PostgresJsDatabase<typeof schema> | undefined;
+}
 
-const client = postgres(env.DATABASE_URL as string);
+const schema = {
+  ...shout_s,
+  ...like_s,
+  ...comment_s,
+};
 
-export const db = drizzle(client, {
-  schema: schema,
-  logger: true,
-});
+let db: PostgresJsDatabase<typeof schema>;
+let pg: ReturnType<typeof postgres>;
+
+if (process.env.NODE_ENV === "production") {
+  pg = postgres(env.DATABASE_URL as string);
+  db = drizzle(pg, { schema, logger: true });
+} else {
+  if (!global.database) {
+    pg = postgres(env.DATABASE_URL as string);
+    global.database = drizzle(pg, { schema, logger: true });
+  }
+  db = global.database;
+}
+
+export { db, pg };

@@ -1,0 +1,6 @@
+.bn-editor {
+  padding: 0px !important;
+  min-height: 112px;
+  max-height: 512px;
+  overflow-y: auto;
+}

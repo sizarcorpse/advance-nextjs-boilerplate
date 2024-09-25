@@ -153,6 +153,9 @@
   "get_started_button": {
     "label": "Commencer"
   },
+  "start_shouting_button": {
+    "label": "Commencer à crier!"
+  },
   "meta_landing_page": {
     "meta_title": "Necroverse! Créer l'éternité numérique",
     "meta_description": "Dans le royaume mystique de Necroverse, où le code tisse le tissu de l'éternité, les développeurs exploitent la puissance des technologies de pointe.",
@@ -176,5 +179,73 @@
     "meta_author": "Sizar Corpse",
     "meta_company": "sizar.io",
     "meta_robots": "noindex, nofollow"
+  },
+  "shout_form": {
+    "fields": {
+      "allowed_comment": {
+        "label": "Qui peut répondre ?",
+        "placeholder": "Qui peut répondre ?",
+        "description": "Choisissez qui peut répondre à votre cri !",
+        "options": {
+          "0": {
+            "label": "Tout le monde",
+            "value": "everyone"
+          },
+          "1": {
+            "label": "Aucun",
+            "value": "none"
+          }
+        }
+      },
+      "submit": {
+        "label": "Criez!"
+      }
+    },
+    "toast": {
+      "success": {
+        "title": "Cri envoyé !",
+        "description": "Votre cri a été envoyé avec succès."
+      },
+      "error": {
+        "title": "Erreur !",
+        "description": "Quelque chose s'est mal passé. Veuillez réessayer."
+      }
+    }
+  },
+  "shout_comment_form": {
+    "fields": {
+      "message": {
+        "label": "Laisser un commentaire",
+        "placeholder": "Laisser un commentaire..."
+      },
+      "submit": {
+        "label": "Répondre"
+      }
+    },
+    "toast": {
+      "success": {
+        "title": "Réponse envoyée !",
+        "description": "Votre réponse a été envoyée avec succès."
+      },
+      "error": {
+        "title": "Erreur !",
+        "description": "Une erreur s'est produite. Veuillez réessayer."
+      }
+    }
+  },
+  "shout_comments": {
+    "load_more_button": "Charger plus"
+  },
+  "user_dropdown": {
+    "profile": "Profil",
+    "settings": "Paramètres",
+    "sign_out": "Se déconnecter"
+  },
+  "error_component": {
+    "title": "Désolé, nous avons rencontré un problème.",
+    "description": "Notre équipe a été informée et nous travaillons à résoudre le problème. Veuillez réessayer plus tard",
+    "reset_button": "Réinitialiser",
+    "refresh_button": "Actualiser",
+    "go_back_button": "Revenir en arrière"
   }
 }

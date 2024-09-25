@@ -1,4 +1,31 @@
 {
+<<<<<<< HEAD
   "cSpell.words": ["reacthookform", "reactquery", "testinglibrary"],
   "i18n-ally.localesPaths": ["src/locales"]
+=======
+  "cSpell.words": ["mantine", "reacthookform", "reactquery", "testinglibrary"],
+  "i18n-ally.localesPaths": ["src/locales"],
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "next_dev",
+      "username": "postgres",
+      "password": "Superadmin12004",
+      "database": "next_dev"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "password": "Superadmin12004",
+      "name": "cb",
+      "database": "chaturbate",
+      "username": "postgres"
+    }
+  ]
+>>>>>>> design_v2
 }

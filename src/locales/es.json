@@ -154,6 +154,9 @@
   "get_started_button": {
     "label": "¡Comencemos!"
   },
+  "start_shouting_button": {
+    "label": "¡Comienza a gritar!"
+  },
   "meta_landing_page": {
     "meta_title": "Necroverse! Creando la eternidad digital",
     "meta_description": "En el reino místico de Necroverse, donde el código teje el tejido de la eternidad, los desarrolladores aprovechan el poder de las tecnologías de vanguardia.",
@@ -177,5 +180,73 @@
     "meta_author": "Sizar Corpse",
     "meta_company": "sizar.io",
     "meta_robots": "noindex, nofollow"
+  },
+  "shout_form": {
+    "fields": {
+      "allowed_comment": {
+        "label": "¿Quién puede responder?",
+        "placeholder": "¿Quién puede responder?",
+        "description": "¡Elige quién puede responder a tu grito!",
+        "options": {
+          "0": {
+            "label": "Todos",
+            "value": "everyone"
+          },
+          "1": {
+            "label": "Ninguno",
+            "value": "none"
+          }
+        }
+      },
+      "submit": {
+        "label": "¡Grita!"
+      }
+    },
+    "toast": {
+      "success": {
+        "title": "¡Grito enviado!",
+        "description": "Tu mensaje ha sido enviado exitosamente."
+      },
+      "error": {
+        "title": "¡Error!",
+        "description": "Algo salió mal. Inténtalo de nuevo."
+      }
+    }
+  },
+  "shout_comment_form": {
+    "fields": {
+      "message": {
+        "label": "Deja un comentario",
+        "placeholder": "Deja un comentario..."
+      },
+      "submit": {
+        "label": "Responder"
+      }
+    },
+    "toast": {
+      "success": {
+        "title": "¡Respuesta enviada!",
+        "description": "Tu respuesta ha sido enviada exitosamente."
+      },
+      "error": {
+        "title": "¡Error!",
+        "description": "Algo salió mal. Por favor, inténtalo de nuevo."
+      }
+    }
+  },
+  "shout_comments": {
+    "load_more_button": "Cargar más"
+  },
+  "user_dropdown": {
+    "profile": "Perfil",
+    "settings": "Configuración",
+    "sign_out": "Cerrar sesión"
+  },
+  "error_component": {
+    "title": "Lo sentimos, encontramos un problema.",
+    "description": "Nuestro equipo ha sido notificado y estamos trabajando para resolver el problema. Vuelve a intentarlo más tarde.",
+    "reset_button": "Reiniciar",
+    "refresh_button": "Actualizar",
+    "go_back_button": "Regresar"
   }
 }

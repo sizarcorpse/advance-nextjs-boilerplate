@@ -154,6 +154,9 @@
   "get_started_button": {
     "label": "Get Started"
   },
+  "start_shouting_button": {
+    "label": "Start Shouting!"
+  },
   "meta_landing_page": {
     "meta_title": "Necroverse! Crafting Digital Eternity",
     "meta_description": "In the mystical realm of Necroverse, where code weaves the fabric of eternity, developers harness the power of cutting-edge technologies",
@@ -177,5 +180,73 @@
     "meta_author": "Sizar Corpse",
     "meta_company": "sizar.io",
     "meta_robots": "noindex, nofollow"
+  },
+  "shout_form": {
+    "fields": {
+      "allowed_comment": {
+        "label": "Who can reply?",
+        "placeholder": "Who can reply?",
+        "description": "Choose who can reply to your shout!",
+        "options": {
+          "0": {
+            "label": "Everyone",
+            "value": "everyone"
+          },
+          "1": {
+            "label": "None",
+            "value": "none"
+          }
+        }
+      },
+      "submit": {
+        "label": "Shout!"
+      }
+    },
+    "toast": {
+      "success": {
+        "title": "Shout Sent!",
+        "description": "Your shout has been sent successfully."
+      },
+      "error": {
+        "title": "Error!",
+        "description": "Something went wrong. Please try again."
+      }
+    }
+  },
+  "shout_comment_form": {
+    "fields": {
+      "message": {
+        "label": "Leave a comment",
+        "placeholder": "Leave a comment..."
+      },
+      "submit": {
+        "label": "Reply"
+      }
+    },
+    "toast": {
+      "success": {
+        "title": "Reply Sent!",
+        "description": "Your reply has been sent successfully."
+      },
+      "error": {
+        "title": "Error!",
+        "description": "Something went wrong. Please try again."
+      }
+    }
+  },
+  "shout_comments": {
+    "load_more_button": "Load More"
+  },
+  "user_dropdown": {
+    "profile": "Profile",
+    "settings": "Account Settings",
+    "sign_out": "Sign Out"
+  },
+  "error_component": {
+    "title": "Sorry, we encountered a problem.",
+    "description": "Our team has been notified, and we'are working to resolve the issue. Please try again later.",
+    "reset_button": "Reset",
+    "refresh_button": "Refresh",
+    "go_back_button": "Go Back"
   }
 }

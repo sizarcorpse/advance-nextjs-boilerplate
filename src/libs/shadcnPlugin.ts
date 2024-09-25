@@ -69,6 +69,12 @@ export const shadcnPlugin = plugin(
       "::-webkit-scrollbar-thumb:hover": {
         background: "#171717",
       },
+      ".prose p:last-child:empty": {
+        display: "none !important",
+      },
+      ".prose:has(p:last-child:empty) p:nth-last-child(2)": {
+        marginBottom: "0",
+      },
     });
   },
   {
@@ -130,10 +136,16 @@ export const shadcnPlugin = plugin(
             from: { height: "var(--radix-accordion-content-height)" },
             to: { height: "0" },
           },
+          "processing-bar": {
+            "0%": { "background-position": "-150% 0,-150% 0" },
+            "66%": { "background-position": "250% 0,-150% 0" },
+            "100%": { "background-position": "250% 0, 250% 0" },
+          },
         },
         animation: {
           "accordion-down": "accordion-down 0.2s ease-out",
           "accordion-up": "accordion-up 0.2s ease-out",
+          "processing-bar": "processing-bar 3s infinite",
         },
       },
     },

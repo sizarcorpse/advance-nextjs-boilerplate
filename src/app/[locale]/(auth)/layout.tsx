@@ -1,4 +1,6 @@
-import { enUS, esES, frFR } from "@clerk/localizations";
+import { Footer } from "@/components";
+import { AuthHeader } from "@/features/shouts/components";
+import getClerkLocaleUrl from "@/utils/getClerkLocaleUrl";
 import { ClerkProvider } from "@clerk/nextjs";
 import { getTranslations } from "next-intl/server";
 
@@ -15,35 +17,31 @@ export async function generateMetadata() {
 
 export default function AuthLayout(props: {
   children: React.ReactNode;
+  modal?: React.ReactNode;
   params: { locale: string };
 }) {
-  let clerkLocale = enUS;
-  let signInUrl = "/sign-in";
-  let signUpUrl = "/sign-up";
-  let dashboardUrl = "/dashboard";
-
-  if (props.params.locale === "fr") {
-    clerkLocale = frFR;
-  }
-  if (props.params.locale === "es") {
-    clerkLocale = esES;
-  }
-
-  if (props.params.locale !== "en") {
-    signInUrl = `/${props.params.locale}${signInUrl}`;
-    signUpUrl = `/${props.params.locale}${signUpUrl}`;
-    dashboardUrl = `/${props.params.locale}${dashboardUrl}`;
-  }
+  const { locale } = props.params;
+  const { clerkLocale, signInUrl, signUpUrl, redirectUrl } =
+    getClerkLocaleUrl(locale);
 
   return (
     <ClerkProvider
       localization={clerkLocale}
       signInUrl={signInUrl}
       signUpUrl={signUpUrl}
-      signInForceRedirectUrl={dashboardUrl}
-      signUpForceRedirectUrl={dashboardUrl}
+      signInForceRedirectUrl={redirectUrl}
+      signUpForceRedirectUrl={redirectUrl}
     >
-      {props.children}
+      <main className="h-screen max-h-screen w-full flex flex-col bg-background text-foreground">
+        <AuthHeader />
+        <div className="w-full flex-grow overflow-y-auto">
+          {props.children}
+          {props.modal}
+        </div>
+        <footer className="w-full h-12 flex ">
+          <Footer />
+        </footer>
+      </main>
     </ClerkProvider>
   );
 }

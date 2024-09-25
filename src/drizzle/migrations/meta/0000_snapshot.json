@@ -1,11 +1,11 @@
 {
-  "id": "4a167171-83b4-4dc2-b289-79cbfbc5f4c1",
+  "id": "3c7767f8-10ec-48e4-a0c6-28ecd0ac8c9f",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "6",
   "dialect": "postgresql",
   "tables": {
-    "public.comment": {
-      "name": "comment",
+    "public.comments": {
+      "name": "comments",
       "schema": "",
       "columns": {
         "id": {
@@ -15,61 +15,68 @@
           "notNull": true,
           "default": "gen_random_uuid()"
         },
-        "createdAt": {
-          "name": "createdAt",
-          "type": "timestamp",
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
         },
-        "shoutId": {
-          "name": "shoutId",
+        "shout_id": {
+          "name": "shout_id",
           "type": "uuid",
           "primaryKey": false,
           "notNull": true
         },
-        "userId": {
-          "name": "userId",
+        "user_id": {
+          "name": "user_id",
           "type": "text",
           "primaryKey": false,
           "notNull": true
         },
         "message": {
           "name": "message",
-          "type": "varchar(500)",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": true
         }
       },
       "indexes": {
-        "comment_createdAt_index": {
-          "name": "comment_createdAt_index",
+        "idx_comment_shout_id": {
+          "name": "idx_comment_shout_id",
           "columns": [
-            "createdAt"
+            "shout_id"
+          ],
+          "isUnique": false
+        },
+        "idx_comment_created_At": {
+          "name": "idx_comment_created_At",
+          "columns": [
+            "created_at"
           ],
           "isUnique": false
         }
       },
       "foreignKeys": {
-        "comment_shoutId_shout_id_fk": {
-          "name": "comment_shoutId_shout_id_fk",
-          "tableFrom": "comment",
-          "tableTo": "shout",
+        "comments_shout_id_shouts_id_fk": {
+          "name": "comments_shout_id_shouts_id_fk",
+          "tableFrom": "comments",
+          "tableTo": "shouts",
           "columnsFrom": [
-            "shoutId"
+            "shout_id"
           ],
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "public.like": {
-      "name": "like",
+    "public.likes": {
+      "name": "likes",
       "schema": "",
       "columns": {
         "id": {
@@ -79,64 +86,71 @@
           "notNull": true,
           "default": "gen_random_uuid()"
         },
-        "createdAt": {
-          "name": "createdAt",
-          "type": "timestamp",
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
         },
-        "shoutId": {
-          "name": "shoutId",
+        "shout_id": {
+          "name": "shout_id",
           "type": "uuid",
           "primaryKey": false,
           "notNull": true
         },
-        "userId": {
-          "name": "userId",
+        "user_id": {
+          "name": "user_id",
           "type": "text",
           "primaryKey": false,
           "notNull": true
         }
       },
       "indexes": {
-        "like_createdAt_index": {
-          "name": "like_createdAt_index",
+        "idx_like_shout_id": {
+          "name": "idx_like_shout_id",
           "columns": [
-            "createdAt"
+            "shout_id"
+          ],
+          "isUnique": false
+        },
+        "idx_like_created_at": {
+          "name": "idx_like_created_at",
+          "columns": [
+            "created_at"
           ],
           "isUnique": false
         }
       },
       "foreignKeys": {
-        "like_shoutId_shout_id_fk": {
-          "name": "like_shoutId_shout_id_fk",
-          "tableFrom": "like",
-          "tableTo": "shout",
+        "likes_shout_id_shouts_id_fk": {
+          "name": "likes_shout_id_shouts_id_fk",
+          "tableFrom": "likes",
+          "tableTo": "shouts",
           "columnsFrom": [
-            "shoutId"
+            "shout_id"
           ],
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
-        "like_shoutId_userId_unique": {
-          "name": "like_shoutId_userId_unique",
+        "uq_like_shoutId_userId": {
+          "name": "uq_like_shoutId_userId",
           "nullsNotDistinct": false,
           "columns": [
-            "shoutId",
-            "userId"
+            "shout_id",
+            "user_id"
           ]
         }
       }
     },
-    "public.shout": {
-      "name": "shout",
+    "public.shouts": {
+      "name": "shouts",
       "schema": "",
       "columns": {
         "id": {
@@ -146,69 +160,70 @@
           "notNull": true,
           "default": "gen_random_uuid()"
         },
-        "createdAt": {
-          "name": "createdAt",
-          "type": "timestamp",
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
         },
-        "updatedAt": {
-          "name": "updatedAt",
-          "type": "timestamp",
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
         },
         "message": {
           "name": "message",
-          "type": "varchar(500)",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": true
         },
-        "userId": {
-          "name": "userId",
+        "user_id": {
+          "name": "user_id",
           "type": "text",
           "primaryKey": false,
           "notNull": true
         },
-        "isModified": {
-          "name": "isModified",
+        "is_modified": {
+          "name": "is_modified",
           "type": "boolean",
           "primaryKey": false,
           "notNull": true,
           "default": false
         },
-        "isAnonymous": {
-          "name": "isAnonymous",
+        "is_anonymous": {
+          "name": "is_anonymous",
           "type": "boolean",
           "primaryKey": false,
           "notNull": true,
           "default": false
         },
-        "allowedComment": {
-          "name": "allowedComment",
-          "type": "boolean",
+        "allowed_comment": {
+          "name": "allowed_comment",
+          "type": "allowed_comment_enum",
+          "typeSchema": "public",
           "primaryKey": false,
           "notNull": true,
-          "default": true
+          "default": "'everyone'"
         },
-        "likesCount": {
-          "name": "likesCount",
+        "likes_count": {
+          "name": "likes_count",
           "type": "integer",
           "primaryKey": false,
           "notNull": true,
           "default": 0
         },
-        "viewsCount": {
-          "name": "viewsCount",
+        "views_count": {
+          "name": "views_count",
           "type": "integer",
           "primaryKey": false,
           "notNull": true,
           "default": 0
         },
-        "commentsCount": {
-          "name": "commentsCount",
+        "comments_count": {
+          "name": "comments_count",
           "type": "integer",
           "primaryKey": false,
           "notNull": true,
@@ -216,17 +231,17 @@
         }
       },
       "indexes": {
-        "shout_userId_index": {
-          "name": "shout_userId_index",
+        "idx_shout_user_id": {
+          "name": "idx_shout_user_id",
           "columns": [
-            "userId"
+            "user_id"
           ],
           "isUnique": false
         },
-        "shout_createdAt_index": {
-          "name": "shout_createdAt_index",
+        "idx_shout_created_at": {
+          "name": "idx_shout_created_at",
           "columns": [
-            "createdAt"
+            "created_at"
           ],
           "isUnique": false
         }
@@ -236,7 +251,16 @@
       "uniqueConstraints": {}
     }
   },
-  "enums": {},
+  "enums": {
+    "public.allowed_comment_enum": {
+      "name": "allowed_comment_enum",
+      "schema": "public",
+      "values": [
+        "everyone",
+        "none"
+      ]
+    }
+  },
   "schemas": {},
   "_meta": {
     "columns": {},

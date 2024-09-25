@@ -11,13 +11,20 @@ const intlMiddleware = createMiddleware({
   pathnames,
 });
 
-const isProtectedRoute = createRouteMatcher(["/dashboard(.*)", "/forum(.*)"]);
+const isProtectedRoute = createRouteMatcher([
+  "/dashboard(.*)",
+  "/shout(.*)",
+  "/user(.*)",
+]);
 
 export default function middleware(
   request: NextRequest,
   event: NextFetchEvent
 ) {
   if (
+    // TODO: Make this conditional more concise
+
+    request.nextUrl.pathname.includes("/") ||
     request.nextUrl.pathname.includes("/sign-in") ||
     request.nextUrl.pathname.includes("/sign-up") ||
     isProtectedRoute(request)
