@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["reacthookform", "reactquery", "testinglibrary"]
+  "cSpell.words": ["reacthookform", "reactquery", "testinglibrary"],
+  "i18n-ally.localesPaths": ["src/locales"]
 }
