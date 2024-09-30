@@ -1,5 +1,7 @@
 import { cn } from "@/libs/utils";
+import Link from "next/link";
 import { FC } from "react";
+
 type ShoutUserProps = {
   firstName: string;
   lastName: string;
@@ -20,17 +22,20 @@ const ShoutUser: FC<ShoutUserProps> = ({
   }
 
   return (
-    <div
+    <Link
       className={cn(
         `flex items-center justify-start gap-1 text-base`,
         className
       )}
+      href={`/user/${username}`}
     >
       <span className="font-medium">
         {firstName} {lastName}
       </span>
-      <span className="font-thin text-foreground/60">@{username}</span>
-    </div>
+      <span className="font-thin text-foreground/60 hover:text-foreground/100 transition-colors">
+        @{username}
+      </span>
+    </Link>
   );
 };
 

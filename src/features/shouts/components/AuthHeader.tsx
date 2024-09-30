@@ -6,7 +6,7 @@ const AuthHeader = () => {
     <header className="w-full h-14 p-4 flex flex-row items-center justify-start gap-4">
       <div className="inline-flex gap-1">
         <MobileNavigation />
-        <SiteLogo />
+        <SiteLogo userLoggedIn={true} />
       </div>
       <SignedIn>
         <div className="grow">{/* <Navigation /> */}</div>
