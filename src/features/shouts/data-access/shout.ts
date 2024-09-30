@@ -25,6 +25,7 @@ export const getShouts = cache(async (userId: string) => {
         likes: {
           where: eq(LikeTable.userId, userId),
         },
+        attachments: true,
       },
       orderBy: desc(ShoutTable.createdAt),
     });
@@ -44,13 +45,20 @@ export const getShouts = cache(async (userId: string) => {
 
 export async function getShoutById(shoutId: string) {
   try {
-    const shout = await db
-      .select()
-      .from(ShoutTable)
-      .where(eq(ShoutTable.id, shoutId))
-      .limit(1);
+    // const shout = await db
+    //   .select()
+    //   .from(ShoutTable)
+    //   .where(eq(ShoutTable.id, shoutId))
+    //   .limit(1);
 
-    return shout[0];
+    const shout = await db.query.ShoutTable.findFirst({
+      where: eq(ShoutTable.id, shoutId),
+      with: {
+        attachments: true,
+      },
+    });
+
+    return shout;
   } catch (error) {
     throw error;
   }

@@ -12,7 +12,7 @@ import {
 } from "drizzle-orm/pg-core";
 import { z } from "zod";
 
-import { AttachmentTable } from "./attachment";
+import { Attachment, AttachmentTable } from "./attachment";
 import { CommentTable } from "./comment";
 import { LikeTable } from "./like";
 
@@ -97,6 +97,7 @@ export type Shout = typeof ShoutTable.$inferSelect & {
     hasImage: boolean;
     imageUrl: string;
   };
+  attachments: Attachment[];
 };
 
 export type InsertShout = z.infer<typeof insertShoutSchema>;

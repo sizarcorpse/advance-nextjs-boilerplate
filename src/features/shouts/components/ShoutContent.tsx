@@ -1,6 +1,7 @@
 import { Separator } from "@/components/ui/separator";
 import { type Shout } from "@/drizzle/schema/shout";
 import {
+  ShoutAttachment,
   ShoutComment,
   ShoutCreatedAt,
   ShoutLike,
@@ -33,6 +34,7 @@ const ShoutContent: FC<ShoutContentProps> = ({ shout }) => {
         />
       </div>
       <ShoutMessage message={shout.message} />
+      <ShoutAttachment attachments={shout.attachments} />
       <ShoutCreatedAt createdAt={shout.createdAt} formatter="full" />
       <div className="space-y-2.5">
         <Separator />

@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { type Shout } from "@/drizzle/schema/shout";
 import {
+  ShoutAttachment,
   ShoutComment,
   ShoutCreatedAt,
   ShoutLike,
@@ -37,6 +38,7 @@ const ShoutCard: FC<ShoutCardProps> = ({ shout }) => {
               <ShoutCreatedAt createdAt={shout.createdAt} />
             </div>
             <ShoutMessage message={shout.message} />
+            <ShoutAttachment attachments={shout.attachments} />
             <div className="flex items-center justify-between">
               <ShoutLike
                 shoutId={shout.id}

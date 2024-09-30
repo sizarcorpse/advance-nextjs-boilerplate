@@ -1,3 +1,4 @@
+import * as attachment_s from "@/drizzle/schema/attachment";
 import * as comment_s from "@/drizzle/schema/comment";
 import * as like_s from "@/drizzle/schema/like";
 import * as shout_s from "@/drizzle/schema/shout";
@@ -13,6 +14,7 @@ const schema = {
   ...shout_s,
   ...like_s,
   ...comment_s,
+  ...attachment_s,
 };
 
 let db: PostgresJsDatabase<typeof schema>;
