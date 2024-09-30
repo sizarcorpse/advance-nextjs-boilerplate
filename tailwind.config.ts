@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { withUt } from "uploadthing/tw";
 import { shadcnPreset } from "./src/libs/shadcnPreset";
 
 const config = {
@@ -11,4 +12,4 @@ const config = {
   ],
 } satisfies Config;
 
-export default config;
+export default withUt(config);

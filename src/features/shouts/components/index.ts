@@ -1,6 +1,8 @@
 export { default as AuthHeader } from "./AuthHeader";
 export { default as AuthMobileNavigation } from "./AuthMobileNavigation";
 export { default as CreateShoutForm } from "./CreateShoutForm";
+export { default as CreateShoutFormUploadPhoto } from "./CreateShoutFormUploadPhoto";
+export { default as CreateShoutFormUploadPhotoPreview } from "./CreateShoutFormUploadPhotoPreview";
 export { default as ShoutCard } from "./ShoutCard";
 export { default as ShoutCollection } from "./ShoutCollection";
 export { default as ShoutComment } from "./ShoutComment";

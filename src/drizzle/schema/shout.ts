@@ -10,9 +10,9 @@ import {
   uuid,
   varchar,
 } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
+import { AttachmentTable } from "./attachment";
 import { CommentTable } from "./comment";
 import { LikeTable } from "./like";
 
@@ -59,12 +59,33 @@ export const ShoutTable = pgTable(
 export const shoutRelation = relations(ShoutTable, ({ many }) => ({
   comments: many(CommentTable),
   likes: many(LikeTable),
+  attachments: many(AttachmentTable),
 }));
 
-// 💉 Shout Table => Zod Schema
-export const insertShoutSchema = createInsertSchema(ShoutTable, {
-  message: z.string().min(1),
-  userId: z.optional(z.string().uuid()),
+export const insertShoutSchema = z.object({
+  userId: z.string().min(1),
+  message: z.string().min(20),
+  isAnonymous: z.boolean().optional(),
+  allowedComment: z.enum(["everyone", "none"]),
+});
+
+export const insertShoutWithAttachmentSchema = z.object({
+  userId: z.string().min(1),
+  message: z.string().min(20),
+  isAnonymous: z.boolean().optional(),
+  allowedComment: z.enum(["everyone", "none"]),
+  attachments: z
+    .array(
+      z.object({
+        name: z.string(),
+        file: z.custom<FormData>((fd) => fd instanceof FormData),
+        metadata: z.object({
+          width: z.number(),
+          height: z.number(),
+        }),
+      })
+    )
+    .optional(),
 });
 
 export type Shout = typeof ShoutTable.$inferSelect & {
@@ -77,4 +98,8 @@ export type Shout = typeof ShoutTable.$inferSelect & {
     imageUrl: string;
   };
 };
-export type InsertShout = typeof ShoutTable.$inferInsert;
+
+export type InsertShout = z.infer<typeof insertShoutSchema>;
+export type InsertShoutWithAttachment = z.infer<
+  typeof insertShoutWithAttachmentSchema
+>;

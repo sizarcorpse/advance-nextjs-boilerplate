@@ -20,11 +20,11 @@ let pg: ReturnType<typeof postgres>;
 
 if (process.env.NODE_ENV === "production") {
   pg = postgres(env.DATABASE_URL as string);
-  db = drizzle(pg, { schema, logger: true });
+  db = drizzle(pg, { schema, logger: false });
 } else {
   if (!global.database) {
     pg = postgres(env.DATABASE_URL as string);
-    global.database = drizzle(pg, { schema, logger: true });
+    global.database = drizzle(pg, { schema, logger: false });
   }
   db = global.database;
 }

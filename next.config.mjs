@@ -29,6 +29,10 @@ export default withSentryConfig(
           {
             hostname: "img.clerk.com",
           },
+          {
+            protocol: "https",
+            hostname: "utfs.io",
+          },
         ],
       },
     })

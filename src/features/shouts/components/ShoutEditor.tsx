@@ -65,7 +65,7 @@ const Editor = ({
   className,
   resetEditor,
 }: {
-  form: UseFormReturn<InsertShout>;
+  form: UseFormReturn<Omit<InsertShout, "userId">>;
   resetEditor: boolean;
   className?: string;
 }) => {
@@ -90,6 +90,7 @@ const Editor = ({
       const cleanHtml = sanitizeHtml(html, {});
 
       form.setValue("message", cleanHtml);
+      form.trigger("message");
     } catch (error) {
       form.setError("message", {
         type: "validate",

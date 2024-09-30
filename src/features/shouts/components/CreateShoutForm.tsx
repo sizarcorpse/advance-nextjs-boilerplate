@@ -20,44 +20,58 @@ import {
 } from "@/components/ui/select";
 import { Toggle } from "@/components/ui/toggle";
 import { useToast } from "@/components/ui/use-toast";
+import { AttachmentPayload } from "@/drizzle/schema/attachment";
 import { InsertShout, insertShoutSchema } from "@/drizzle/schema/shout";
 import { createShoutAction } from "@/features/shouts/actions/shout";
+import {
+  CreateShoutFormUploadPhoto,
+  CreateShoutFormUploadPhotoPreview,
+} from "@/features/shouts/components";
+import { serializedAttachment } from "@/features/shouts/utils/";
 import { cn } from "@/libs/utils";
 import { useUser } from "@clerk/clerk-react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ImagePlus, Speech, UserX, Users, VenetianMask } from "lucide-react";
+import { Speech, UserX, Users, VenetianMask } from "lucide-react";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useServerAction } from "zsa-react";
 
 const Editor = dynamic(() => import("./ShoutEditor"), { ssr: false });
 
 const CreateShoutForm = () => {
+  const [attachment, setAttachment] = useState<AttachmentPayload[]>([]);
   const { user } = useUser();
   const { execute, isPending, isSuccess } = useServerAction(createShoutAction);
   const { toast } = useToast();
   const t = useTranslations("shout_form");
 
-  const form = useForm<InsertShout>({
-    resolver: zodResolver(insertShoutSchema),
+  const form = useForm<Omit<InsertShout, "userId">>({
+    resolver: zodResolver(insertShoutSchema.omit({ userId: true })),
+    mode: "onBlur",
     defaultValues: {
       message: "",
       isAnonymous: false,
-      allowedComment: "everyone",
+      allowedComment: undefined,
     },
   });
 
   const {
     handleSubmit,
-    reset,
-    formState: { isDirty },
+    formState: { isValid },
   } = form;
 
-  const onSubmit = async (values: InsertShout) => {
+  const onSubmit = async (values: Omit<InsertShout, "userId">) => {
     try {
-      const [_, error] = await execute(values);
+      const [_, error] = await execute({
+        userId: user?.id as string,
+        message: values.message,
+        isAnonymous: values.isAnonymous,
+        allowedComment: values.allowedComment,
+        attachments: serializedAttachment(attachment),
+      });
 
       if (error) {
         throw new Error(error.message);
@@ -68,7 +82,7 @@ const CreateShoutForm = () => {
         description: t("toast.success.description"),
       });
 
-      reset();
+      setAttachment([]);
     } catch (error: any) {
       toast({
         variant: "destructive",
@@ -100,6 +114,13 @@ const CreateShoutForm = () => {
                 <AvatarFallback className="animate-pulse"></AvatarFallback>
               </Avatar>
               <Editor form={form} className="flex-1" resetEditor={isSuccess} />
+            </div>
+            <div className="w-full h-full py-4">
+              <CreateShoutFormUploadPhotoPreview
+                attachment={attachment}
+                setAttachment={setAttachment}
+                isPending={isPending}
+              />
             </div>
             <div className="flex items-start justify-between flex-col gap-2 sm:gap-4 sm:flex-row">
               <div className="flex items-center justify-between gap-2">
@@ -172,20 +193,15 @@ const CreateShoutForm = () => {
                   <VenetianMask className="h-4 w-4" strokeWidth={1.75} />
                 </Toggle>
 
-                <Button
-                  type="button"
-                  className={cn(
-                    inputStyles,
-                    `bg-primary/5 p-2 text-primary/60 aspect-square hover:bg-muted `
-                  )}
-                >
-                  <ImagePlus className="h-4 w-4" />
-                </Button>
+                <CreateShoutFormUploadPhoto
+                  attachments={attachment}
+                  setAttachment={setAttachment}
+                />
               </div>
               <Button
                 type="submit"
                 className="w-full sm:w-auto"
-                disabled={isPending || !isDirty}
+                disabled={!isValid || isPending}
               >
                 {t("fields.submit.label")}
                 <Speech className="h-4 w-4 ml-2" />

@@ -10,6 +10,7 @@ export const env = createEnv({
     SENTRY_AUTH_TOKEN: z.string().min(1).optional(),
     SENTRY_ORG: z.string().min(1).optional(),
     SENTRY_PROJECT: z.string().min(1).optional(),
+    UPLOADTHING_TOKEN: z.string().min(1).optional(),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().optional(),
@@ -38,5 +39,6 @@ export const env = createEnv({
     SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
     SENTRY_ORG: process.env.SENTRY_ORG,
     SENTRY_PROJECT: process.env.SENTRY_PROJECT,
+    UPLOADTHING_TOKEN: process.env.UPLOADTHING_TOKEN,
   },
 });
